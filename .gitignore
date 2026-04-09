@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+
+# Model files
+*.pth
+*.onnx
+*.task
+*.npy
+
+# Dataset
+AffectNet/
+AffectNet_Aligned_224/
+
+# Outputs (except visualizations)
+outputs/checkpoints/
+outputs/exports/
+outputs/logs/
+outputs/embeddings/
+outputs/screenshots/
+outputs/annotated_videos/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

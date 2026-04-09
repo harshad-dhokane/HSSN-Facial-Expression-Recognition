@@ -36,47 +36,9 @@ The core idea: facial expressions encode information in **both spatial and frequ
 
 ## 🏗️ Architecture — What Makes HSSN Different
 
-```
-Input (224×224 RGB)
-    │
-    ▼
-┌─────────────────────────────┐
-│ Stem: 7×7 Conv, stride=2    │
-└────────────┬────────────────┘
-             │
-    ╔════════╧══════════════════════════════════════╗
-    ║   4 Stages × 3 DualPathBlocks each            ║
-    ║                                                ║
-    ║   ┌─────────────┐    ┌──────────────┐          ║
-    ║   │ Spatial Path │    │ Spectral Path│          ║
-    ║   │ (DW+PW Conv) │    │ (FFT Filter) │          ║
-    ║   └──────┬──────┘    └──────┬───────┘          ║
-    ║          └──────┬───────────┘                   ║
-    ║          ┌──────▼──────┐                        ║
-    ║          │ Channel Gate │  ← Learned α fusion   ║
-    ║          └──────┬──────┘                        ║
-    ║          ┌──────▼──────┐                        ║
-    ║          │  SE Block   │  ← Squeeze-Excitation  ║
-    ║          └──────┬──────┘                        ║
-    ║                 + Residual                      ║
-    ║                                                ║
-    ║   → AntiAlias Downsample between stages         ║
-    ║   → Cross-Stage Refinement (attention-based)    ║
-    ╚═══════════════════════════════════════════════╝
-             │
-    ┌────────▼────────────────────┐
-    │ Multi-Scale Pooling          │
-    │ (1×1 + 2×2 + 4×4 = 21 tokens)│
-    └────────┬────────────────────┘
-             │
-    ┌────────▼─────────────┐
-    │ 256-D Embedding Head  │  ← L2-normalized
-    └────────┬─────────────┘
-             │
-    ┌────────▼─────────────┐
-    │ 8-Class Classifier    │
-    └──────────────────────┘
-```
+![HSSN Architecture](assets/hssn_architecture.svg)
+
+---
 
 ### Key Design Decisions
 

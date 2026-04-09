@@ -271,8 +271,8 @@ The full experiment follows a rigorous 20-stage methodology:
 
 ## 📬 Contact
 
-**Author:** Harshad  
-**Looking for:** Apprenticeship roles in AI/ML/Deep Learning  
+**Author:** Harshad
+**Author:** Harshad — [📧 Email](mailto:worrk.harsshad@gmail.com) | [📸 Instagram](https://www.instagram.com/harssad_dhokane)
 
 If you found this project interesting, feel free to ⭐ star the repo!
 
